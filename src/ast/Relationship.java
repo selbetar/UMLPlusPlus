@@ -1,9 +1,18 @@
 package ast;
 
-public class Relationship implements Node{
-    @Override
-    public void parse() {
+public class Relationship extends Statement {
+    private String subClass;
+    private String superClass;
+    private relationshipType relType;
 
+    @Override
+
+    public void parse() {
+        relType = tokenizer.checkToken("Extends") ? relationshipType.EXTENDS : relationshipType.IMPLEMENTS;
+        tokenizer.getNext();
+        subClass = tokenizer.getNext();
+        tokenizer.getAndCheckNext(">");
+        superClass = tokenizer.getNext();
     }
 
     @Override
@@ -19,5 +28,10 @@ public class Relationship implements Node{
     @Override
     public void typeCheck() {
 
+    }
+
+    public enum relationshipType {
+        EXTENDS,
+        IMPLEMENTS
     }
 }

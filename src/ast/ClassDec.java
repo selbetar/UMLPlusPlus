@@ -1,6 +1,6 @@
 package ast;
 
-public class ClassDec implements Node{
+public class ClassDec extends Statement {
     @Override
     public void parse() {
 

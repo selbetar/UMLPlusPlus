@@ -11,4 +11,3 @@ Implements TRex > Animal
 Declare Class Employee
 Declare Class Manager
 Extends Manager > Employee
-
