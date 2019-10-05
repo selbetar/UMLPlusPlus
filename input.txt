@@ -1,14 +1,14 @@
 Declare Class Zoo
-Add fields [+:String:shops, +:String:name]
-Add method [+:String, enter()]
+Add Fields [+:String:shops, +:String:name]
+Add Methods [+:String,enter()]
 
 Declare Interface Animal
 Declare Class Fish
-Declare Class Zebra
-Fish Implements Animal
-Zebra Implements Animal
+Declare Class Tyrannosaurus As TRex
+Implements Fish > Animal
+Implements TRex > Animal
 
 Declare Class Employee
 Declare Class Manager
-Manager Extends Employee
+Extends Manager > Employee
 

@@ -7,8 +7,10 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Code from Elisa Baniassard CPSC410 Lecture
+ */
 public class Tokenizer {
-
 
     private static String program;
     private static List<String> literals;
@@ -28,39 +30,20 @@ public class Tokenizer {
     }
 
     //modifies: this.tokens
-    //effects: will result in a list of tokens (sitting at this.tokens) that has spaces within tokens.
-    //          this might mean you need to strip off spaces around things during parsing (ick)
-    private void spaceHappyTokenize (){
-        String tokenizedProgram = program;
-        tokenizedProgram = tokenizedProgram.replace("\n","");
-        System.out.println(program);
-        for (String s : literals){
-            tokenizedProgram = tokenizedProgram.replace(s,"_"+s+"_");
-            System.out.println(tokenizedProgram);
-        }
-        tokenizedProgram = tokenizedProgram.replaceAll("__","_");
-        System.out.println(tokenizedProgram);
-        String [] temparray=tokenizedProgram.split("_");
-        tokens = new String[temparray.length-1];
-        System.arraycopy(temparray,1,tokens,0,temparray.length-1);
-        System.out.println(Arrays.asList(tokens));
-    }
-
-    //modifies: this.tokens
     //effects: will result in a list of tokens (sitting at this.tokens) that has no spaces within tokens.
     //          so if you want spaces within tokens, use the spaceHappyTokenize method (above) instead
     private void spaceKillingTokenize(){
         String tokenizedProgram = program;
         tokenizedProgram = tokenizedProgram.replace("\n","");
         tokenizedProgram = tokenizedProgram.replaceAll("([0-9]+)","_$1_");
-        System.out.println(program);
+        //System.out.println(program);
 
         for (String s : literals){
             tokenizedProgram = tokenizedProgram.replace(s,"_"+s+"_");
-            System.out.println(tokenizedProgram);
+            //System.out.println(tokenizedProgram);
         }
         tokenizedProgram = tokenizedProgram.replaceAll("[ ]+","");
-        System.out.println(tokenizedProgram);
+        //System.out.println(tokenizedProgram);
         String [] temparray=tokenizedProgram.split("[_]+");
         tokens = new String[temparray.length-1];
 
