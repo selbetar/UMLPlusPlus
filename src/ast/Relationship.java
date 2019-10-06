@@ -1,5 +1,7 @@
 package ast;
 
+import library.exceptions.NameCheckException;
+
 public class Relationship extends Statement {
     private String subClass;
     private String superClass;
@@ -17,12 +19,22 @@ public class Relationship extends Statement {
 
     @Override
     public void evaluate() {
-
+        if (relationshipType == relationshipType.EXTENDS) {
+            Node.relationshipExtend.put(superClass, subClass);
+        } else if (relationshipType == relationshipType.IMPLEMENTS) {
+            Node.relationshipImplement.put(superClass, subClass);
+        }
     }
 
     @Override
     public void nameCheck() {
+        if (!Node.classes.contains(subClass)) {
+            throw new NameCheckException(subClass);
+        }
 
+        if (!Node.classes.contains(superClass)) {
+            throw new NameCheckException(superClass);
+        }
     }
 
     @Override
