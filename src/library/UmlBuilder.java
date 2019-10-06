@@ -1,5 +1,7 @@
 package library;
 
+import ast.ClassDec;
+import ast.Relationship;
 import com.mxgraph.layout.hierarchical.mxHierarchicalLayout;
 import com.mxgraph.model.mxCell;
 import com.mxgraph.model.mxGeometry;
@@ -41,7 +43,7 @@ public class UmlBuilder extends JFrame {
         return instance;
     }
 
-    public mxCell drawNode(String type, String name, String fields, String methods) {
+    public mxCell drawNode(ClassDec.classType type, String name, String fields, String methods) {
         int width = 100;
         int height = 65;
         String titleStyle = "text;html=1;align=center;verticalAlign=top;spacingLeft=4;spacingRight=4;" +
@@ -55,7 +57,7 @@ public class UmlBuilder extends JFrame {
         mxCell titleNode;
 
 
-        if (type != "class") {
+        if (!type.equals(ClassDec.classType.CLASS)) {
              titleNode = (mxCell) graph.insertVertex(parent, null, "<<"+type+">>"+'\n'+name, 0, 0,
                     width, width, titleStyle);
         } else {
@@ -78,13 +80,13 @@ public class UmlBuilder extends JFrame {
         return titleNode;
     }
 
-    public void drawRelation(String fromNode, String toNode, String relation) {
+    public void drawRelation(String fromNode, String toNode, Relationship.relationshipType relation) {
         String implementsStyle = "dashed=true;endArrow=block;endSize=16;endFill=0;html=1;";
         String extendsStyle    = "endArrow=block;endSize=16;endFill=0;html=1;";
         mxCell toCell = containerMap.get(toNode);
         mxCell fromCell = containerMap.get(fromNode);
 
-        if (relation == "extends") {
+        if (Relationship.relationshipType.EXTENDS.equals(relation)) {
             graph.insertEdge(parent, null, null, fromCell, toCell, extendsStyle);
         } else {
             graph.insertEdge(parent, null, null, fromCell, toCell, implementsStyle);
@@ -122,20 +124,27 @@ public class UmlBuilder extends JFrame {
 
     public static void main(String[] args) {
         UmlBuilder frame = new UmlBuilder();
-        mxCell v1  = frame.drawNode("intreface", "v1", "Hi", "HI()");
-        mxCell v2  = frame.drawNode("class", "v2", "Hi", "HI()");
-        mxCell v3 = frame.drawNode("class", "v3", "Hi", "HI()");
-        mxCell v4 = frame.drawNode("class", "v4", "Hi", "HI()");
-        mxCell v5 = frame.drawNode("class", "v5", "Hi", "HI()");
-        mxCell v6 = frame.drawNode("class", "v6", "Hi", "HI()");
-        mxCell v7 = frame.drawNode("class", "v7", "Hi", "HI()");
+        ClassDec.classType c = ClassDec.classType.CLASS;
+        ClassDec.classType i = ClassDec.classType.INTERFACE;
+        ClassDec.classType ab = ClassDec.classType.ABSTRACT_CLASS;
 
-        frame.drawRelation("v2", "v1", "extends");
-        frame.drawRelation("v3", "v1", "extends");
-        frame.drawRelation("v7", "v1", "implements");
-        frame.drawRelation("v6", "v3", "extends");
-        frame.drawRelation("v4", "v2", "implements");
-        frame.drawRelation("v5", "v4", "implements");
+
+        mxCell v1  = frame.drawNode(ab, "v1", "Hi", "HI()");
+        mxCell v2  = frame.drawNode(c, "v2", "Hi", "HI()");
+        mxCell v3 = frame.drawNode(c, "v3", "Hi", "HI()");
+        mxCell v4 = frame.drawNode(c, "v4", "Hi", "HI()");
+        mxCell v5 = frame.drawNode(c, "v5", "Hi", "HI()");
+        mxCell v6 = frame.drawNode(c, "v6", "Hi", "HI()");
+        mxCell v7 = frame.drawNode(i, "v7", "Hi", "HI()");
+        Relationship.relationshipType extendA = Relationship.relationshipType.EXTENDS;
+        Relationship.relationshipType implementA = Relationship.relationshipType.IMPLEMENTS;
+
+        frame.drawRelation("v2", "v1", extendA);
+        frame.drawRelation("v3", "v1", extendA);
+        frame.drawRelation("v7", "v1", extendA);
+        frame.drawRelation("v6", "v3", extendA);
+        frame.drawRelation("v4", "v2", implementA);
+        frame.drawRelation("v5", "v4", implementA);
 
         frame.endUpdate();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
