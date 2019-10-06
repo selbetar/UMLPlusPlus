@@ -1,5 +1,6 @@
 package ast;
 
+import library.UmlBuilder;
 import library.exceptions.NameCheckException;
 
 public class Relationship extends Statement {
@@ -19,15 +20,17 @@ public class Relationship extends Statement {
 
     @Override
     public void evaluate() {
+        UmlBuilder frame = UmlBuilder.getInstance();
         if (relationshipType == relationshipType.EXTENDS) {
-            Node.relationshipExtend.put(superClass, subClass);
+            frame.drawRelation(subClass, superClass, relationshipType.EXTENDS);
         } else if (relationshipType == relationshipType.IMPLEMENTS) {
-            Node.relationshipImplement.put(superClass, subClass);
+            frame.drawRelation(subClass, superClass, relationshipType.IMPLEMENTS);
         }
     }
 
     @Override
     public void nameCheck() {
+        // TODO: Depends on ClassDec Implementation
         if (!Node.classes.contains(subClass)) {
             throw new NameCheckException(subClass);
         }
