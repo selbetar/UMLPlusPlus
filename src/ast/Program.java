@@ -4,6 +4,7 @@ import library.exceptions.InvalidGrammarException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Program implements Node {
 
@@ -29,6 +30,16 @@ public class Program implements Node {
 
     @Override
     public void evaluate() {
+        List<Statement> classDecs = statements.stream().filter((statement -> statement.getClass() == ClassDec.class))
+                .collect(Collectors.toList());
+        List<Statement> attributeDecs = statements.stream().filter((statement -> statement.getClass() == AttributeDec.class))
+                .collect(Collectors.toList());
+        List<Statement> relationshipDecs = statements.stream().filter((statement -> statement.getClass() == Relationship.class))
+                .collect(Collectors.toList());
+
+        for (Statement s : statements) {
+            s.evaluate();
+        }
 
     }
 
