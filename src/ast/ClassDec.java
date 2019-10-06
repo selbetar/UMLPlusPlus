@@ -20,4 +20,10 @@ public class ClassDec extends Statement {
     public void typeCheck() {
 
     }
+
+    public enum classType {
+        CLASS,
+        INTERFACE,
+        ABSTRACT_CLASS
+    }
 }
