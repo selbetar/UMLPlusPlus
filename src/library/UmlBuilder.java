@@ -72,12 +72,53 @@ public class UmlBuilder extends JFrame {
 
         graph.addCell(fieldNode, titleNode);
         graph.addCell(methodNode, titleNode);
-        ArrayList<mxCell> children = new ArrayList<>();
-        children.add(fieldNode);
-        children.add(methodNode);
         containerMap.put(name, titleNode);
 
         return titleNode;
+    }
+
+    public void drawClass(ClassDec.classType type, String className) {
+        int width = 100;
+        int height = 65;
+        String titleStyle = "text;html=1;align=center;verticalAlign=top;spacingLeft=4;spacingRight=4;" +
+                "overflow=hidden;rotatable=0;";
+        String attrStyle = "text;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" +
+                "whiteSpace=wrap;overflow=hidden;rotatable=0;portConstraint=eastwest;";
+        mxGeometry fieldGeo = new mxGeometry(0, 0.3, width, height);
+        mxGeometry methodGeo = new mxGeometry(0, 0.75, width, height);
+        fieldGeo.setRelative(true);
+        methodGeo.setRelative(true);
+        mxCell titleNode;
+
+
+        if (!type.equals(ClassDec.classType.CLASS)) {
+            titleNode = (mxCell) graph.insertVertex(parent, null, "<<"+type+">>"+'\n'+className, 0, 0,
+                    width, width, titleStyle);
+        } else {
+            titleNode = (mxCell) graph.insertVertex(parent, null, className, 0, 0, width, width, titleStyle);
+
+        }
+
+        mxCell fieldNode = new mxCell(null, fieldGeo, attrStyle);
+        fieldNode.setVertex(true);
+        mxCell methodNode = new mxCell(null, methodGeo, attrStyle);
+        methodNode.setVertex(true);
+
+        graph.addCell(fieldNode, titleNode);
+        graph.addCell(methodNode, titleNode);
+        containerMap.put(className, titleNode);
+    }
+
+    public void addField(String className, String fields){
+        mxCell classCell = containerMap.get(className);
+        mxCell fieldCell = (mxCell) classCell.getChildAt(0);
+        fieldCell.setValue(fields);
+    }
+
+    public void addMethod(String className, String methods) {
+        mxCell classCell  = containerMap.get(className);
+        mxCell methodCell = (mxCell) classCell.getChildAt(1);
+        methodCell.setValue(methods);
     }
 
     public void drawRelation(String fromNode, String toNode, Relationship.relationshipType relation) {
@@ -129,13 +170,21 @@ public class UmlBuilder extends JFrame {
         ClassDec.classType ab = ClassDec.classType.ABSTRACT_CLASS;
 
 
-        mxCell v1  = frame.drawNode(ab, "v1", "Hi", "HI()");
+        /*mxCell v1  = frame.drawNode(ab, "v1", "Hi", "HI()");
         mxCell v2  = frame.drawNode(c, "v2", "Hi", "HI()");
         mxCell v3 = frame.drawNode(c, "v3", "Hi", "HI()");
         mxCell v4 = frame.drawNode(c, "v4", "Hi", "HI()");
         mxCell v5 = frame.drawNode(c, "v5", "Hi", "HI()");
         mxCell v6 = frame.drawNode(c, "v6", "Hi", "HI()");
-        mxCell v7 = frame.drawNode(i, "v7", "Hi", "HI()");
+        mxCell v7 = frame.drawNode(i, "v7", "Hi", "HI()");*/
+
+        frame.drawClass(c, "v1");
+        frame.drawClass(c, "v2");
+        frame.drawClass(c, "v3");
+        frame.drawClass(c, "v4");
+        frame.drawClass(c, "v5");
+        frame.drawClass(c, "v6");
+        frame.drawClass(i, "v7");
         Relationship.relationshipType extendA = Relationship.relationshipType.EXTENDS;
         Relationship.relationshipType implementA = Relationship.relationshipType.IMPLEMENTS;
 
@@ -145,6 +194,9 @@ public class UmlBuilder extends JFrame {
         frame.drawRelation("v6", "v3", extendA);
         frame.drawRelation("v4", "v2", implementA);
         frame.drawRelation("v5", "v4", implementA);
+
+        frame.addField("v1", "+ test: String");
+        frame.addMethod("v5", "- test(): void");
 
         frame.endUpdate();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
