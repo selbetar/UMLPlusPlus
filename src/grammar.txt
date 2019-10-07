@@ -1,0 +1,20 @@
+Declare Class Library
+Add Fields [+:String:Book] To Library
+Add Methods [+:boolean:Checkout(string ISBN)] To Library
+
+
+PROGRAM::= STATEMENT*
+STATEMENT::= [CLASSDEC | ATTRIBUTEDEC | RELATIONSHIP]
+
+CLASSDEC::=
+
+ATTRIBUTEDEC::="Add " ATTTYPE [VISIBILITY:RETTYPE:ATTNAME,?]* "to" CLASSNAME
+ATTTYPE::=["Fields" | "Methods"]
+VISIBILITY::= [+,-,#]
+RETTYPE::=STRING
+ATTNAME::=STRING
+CLASSNAME::=STRING
+
+RELATIONSHIP
+
+
