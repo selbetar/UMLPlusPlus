@@ -37,19 +37,30 @@ public class Program implements Node {
         List<Statement> relationshipDecs = statements.stream().filter((statement -> statement.getClass() == Relationship.class))
                 .collect(Collectors.toList());
 
-        for (Statement s : statements) {
+        for (Statement s : classDecs) {
             s.evaluate();
         }
 
+        for (Statement s : attributeDecs) {
+            s.evaluate();
+        }
+
+        for (Statement s : relationshipDecs) {
+            s.evaluate();
+        }
     }
 
     @Override
     public void nameCheck() {
-
+        for (Statement s : statements) {
+            s.nameCheck();
+        }
     }
 
     @Override
     public void typeCheck() {
-
+        for (Statement s : statements) {
+            s.typeCheck();
+        }
     }
 }
