@@ -29,12 +29,13 @@ public class Program implements Node {
 
     @Override
     public void evaluate() {
-
     }
 
     @Override
     public void nameCheck() {
-
+        for (STATEMENT s : statements) {
+            s.nameCheck();
+        }
     }
 
     @Override

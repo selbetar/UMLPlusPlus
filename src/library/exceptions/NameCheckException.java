@@ -5,4 +5,7 @@ public class NameCheckException extends RuntimeException {
         System.out.println("Name check fail! Attribute cannot be added to null class\n");
         System.out.println("You forgot to declare class " +className);
     }
+    public NameCheckException(String s){
+	System.out.println("Name Check Failed. You forgot to declare class: "+s);
+    }
 }
