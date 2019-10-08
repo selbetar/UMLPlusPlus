@@ -1,6 +1,7 @@
 package ast;
 
 import library.UmlBuilder;
+import library.AttributeStorage;
 import library.exceptions.NameCheckException;
 
 public class Relationship extends Statement {
@@ -30,12 +31,24 @@ public class Relationship extends Statement {
 
     @Override
     public void nameCheck() {
-        // TODO: Depends on ClassDec Implementation
-        if (!Node.classes.contains(subClass)) {
+        boolean subClassExists = false;
+        boolean superClassExists = false;
+        AttributeStorage storageInstance = AttributeStorage.getInstance();
+        for (String key : storageInstance.methodMap.keySet()) {
+            if (key == subClass) { 
+                subClassExists = true;
+            }
+
+            if (key == superClass) {
+                superClassExists = true;
+            }
+        }
+
+        if (!subClassExists) {
             throw new NameCheckException(subClass);
         }
 
-        if (!Node.classes.contains(superClass)) {
+        if (!superClassExists) {
             throw new NameCheckException(superClass);
         }
     }
