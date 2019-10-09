@@ -12,21 +12,13 @@ public class ClassDec extends Statement {
 
     private Map<String, ArrayList> attributeMap;
     private Map<String, ArrayList> methodMap;
-    private static ClassDec classDec;
     private classType ctype;
     private String className;
     private String classAlias;
 
-    private ClassDec() {
+    public ClassDec() {
         this.attributeMap = new HashMap<String, ArrayList>();
         this.methodMap = new HashMap<String, ArrayList>();
-    }
-
-    public static ClassDec getInstance() {
-        if (classDec == null) {
-            return new ClassDec();
-        }
-        return classDec;
     }
 
     @Override
@@ -58,6 +50,9 @@ public class ClassDec extends Statement {
     @Override
     public void evaluate() {
         UmlBuilder frame = UmlBuilder.getInstance();
+        if (!classAlias.isEmpty()) {
+            className = className + "/" + classAlias;
+        }
         frame.drawClass(ctype, className);
     }
 
