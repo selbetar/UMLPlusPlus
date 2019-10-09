@@ -10,7 +10,6 @@ import java.util.Map;
 
 public class ClassDec extends Statement {
 
-    private List<Statement> statements = new ArrayList<>();
     private Map<String, ArrayList> attributeMap;
     private Map<String, ArrayList> methodMap;
     private static ClassDec classDec;

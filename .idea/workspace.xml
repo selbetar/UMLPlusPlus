@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1728be6-441c-4d83-aaab-db5a67169475" name="Default" comment="">
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ast/ClassDec.java" afterPath="$PROJECT_DIR$/src/ast/ClassDec.java" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+>>>>>>> f40e4c1de442702b9daf6c33f5e965dac1e340a0
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,18 +36,30 @@
       <file leaf-file-name="Tokenizer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/library/Tokenizer.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="-789">
+=======
+            <state relative-caret-position="90">
+>>>>>>> f40e4c1de442702b9daf6c33f5e965dac1e340a0
               <caret line="11" column="3" lean-forward="false" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="ClassDec.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ast/ClassDec.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="960">
               <caret line="69" column="52" lean-forward="false" selection-start-line="69" selection-start-column="52" selection-end-line="69" selection-end-column="52" />
+=======
+      <file leaf-file-name="ClassDec.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ast/ClassDec.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="17" lean-forward="false" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+>>>>>>> f40e4c1de442702b9daf6c33f5e965dac1e340a0
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -51,6 +67,7 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="AttributeDec.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ast/AttributeDec.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -66,6 +83,13 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
               <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+=======
+      <file leaf-file-name="Program.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ast/Program.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="59" />
+>>>>>>> f40e4c1de442702b9daf6c33f5e965dac1e340a0
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -76,21 +100,38 @@
       <file leaf-file-name="Relationship.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ast/Relationship.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="-300">
               <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+=======
+            <state relative-caret-position="30">
+              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+              <folding />
+>>>>>>> f40e4c1de442702b9daf6c33f5e965dac1e340a0
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="AttributeStorage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/library/AttributeStorage.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
               <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
               <folding />
+=======
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+>>>>>>> f40e4c1de442702b9daf6c33f5e965dac1e340a0
             </state>
           </provider>
         </entry>
@@ -98,7 +139,11 @@
       <file leaf-file-name="UmlBuilder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/library/UmlBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="-1365">
+=======
+            <state relative-caret-position="60">
+>>>>>>> f40e4c1de442702b9daf6c33f5e965dac1e340a0
               <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
               <folding />
             </state>
@@ -120,7 +165,10 @@
       <list>
         <option value="$PROJECT_DIR$/src/library/Tokenizer.java" />
         <option value="$PROJECT_DIR$/src/ast/ClassDec.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/ast/AttributeDec.java" />
+=======
+>>>>>>> f40e4c1de442702b9daf6c33f5e965dac1e340a0
       </list>
     </option>
   </component>
@@ -191,6 +239,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< HEAD
               <option name="myItemId" value="library" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -231,6 +280,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+=======
+>>>>>>> f40e4c1de442702b9daf6c33f5e965dac1e340a0
               <option name="myItemId" value="ast" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -699,12 +750,20 @@
       <option name="presentableId" value="Default" />
       <updated>1570235034633</updated>
       <workItem from="1570235036441" duration="5703000" />
+<<<<<<< HEAD
       <workItem from="1570635232581" duration="4677000" />
+=======
+      <workItem from="1570635232581" duration="95000" />
+>>>>>>> f40e4c1de442702b9daf6c33f5e965dac1e340a0
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="10380000" />
+=======
+    <option name="totallyTimeSpent" value="5798000" />
+>>>>>>> f40e4c1de442702b9daf6c33f5e965dac1e340a0
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -799,9 +858,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+<<<<<<< HEAD
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+=======
+          <folding />
+>>>>>>> f40e4c1de442702b9daf6c33f5e965dac1e340a0
         </state>
       </provider>
     </entry>
@@ -823,24 +886,37 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/ast/Node.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/library/Tokenizer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="11" column="3" lean-forward="false" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+>>>>>>> f40e4c1de442702b9daf6c33f5e965dac1e340a0
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="105">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+=======
+        <state relative-caret-position="315">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+>>>>>>> f40e4c1de442702b9daf6c33f5e965dac1e340a0
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/library/Tokenizer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-789">
@@ -853,26 +929,44 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/ast/AttributeDec.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> f40e4c1de442702b9daf6c33f5e965dac1e340a0
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/library/UmlBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="-1365">
+=======
+        <state relative-caret-position="60">
+>>>>>>> f40e4c1de442702b9daf6c33f5e965dac1e340a0
           <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/library/AttributeStorage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/ast/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+>>>>>>> f40e4c1de442702b9daf6c33f5e965dac1e340a0
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/ast/Program.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -887,6 +981,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-300">
           <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/ast/Relationship.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ast/Program.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="59" />
+>>>>>>> f40e4c1de442702b9daf6c33f5e965dac1e340a0
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -895,14 +1003,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ast/ClassDec.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="960">
           <caret line="69" column="52" lean-forward="false" selection-start-line="69" selection-start-column="52" selection-end-line="69" selection-end-column="52" />
+=======
+        <state relative-caret-position="315">
+          <caret line="21" column="17" lean-forward="false" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+>>>>>>> f40e4c1de442702b9daf6c33f5e965dac1e340a0
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/ast/AttributeDec.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -911,6 +1025,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> f40e4c1de442702b9daf6c33f5e965dac1e340a0
   </component>
   <component name="masterDetails">
     <states>
