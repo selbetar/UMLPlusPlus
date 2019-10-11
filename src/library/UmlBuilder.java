@@ -6,9 +6,15 @@ import com.mxgraph.layout.hierarchical.mxHierarchicalLayout;
 import com.mxgraph.model.mxCell;
 import com.mxgraph.model.mxGeometry;
 import com.mxgraph.swing.mxGraphComponent;
+import com.mxgraph.util.mxCellRenderer;
 import com.mxgraph.view.mxGraph;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -157,10 +163,19 @@ public class UmlBuilder extends JFrame {
         mxGraphComponent graphComponent = new mxGraphComponent(graph);
         getContentPane().add(graphComponent);
         graphComponent.doLayout();
+        exportPhoto();
     }
 
     public void exportPhoto() {
-        // todo
+       String path = new File("").getAbsolutePath();
+        BufferedImage image = mxCellRenderer.createBufferedImage(graph, null, 1, Color.WHITE, true,
+                null);
+        try {
+            ImageIO.write(image, "PNG", new File(path + "/output/output.png"));
+        }
+        catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void main(String[] args) {
@@ -199,9 +214,9 @@ public class UmlBuilder extends JFrame {
         frame.addMethod("v5", "- test(): void");
 
         frame.endUpdate();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 320);
-        frame.setVisible(true);
+     //   frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+     //   frame.setSize(400, 320);
+      //  frame.setVisible(true);
     }
 
 
