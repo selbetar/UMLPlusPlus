@@ -54,6 +54,17 @@ public class ClassDec extends Statement {
     public enum ClassType {
         CLASS,
         INTERFACE,
-        ABSTRACT_CLASS
+        ABSTRACT_CLASS;
+
+        @Override
+        public String toString() {
+            switch (this) {
+                case CLASS: return "Class";
+                case INTERFACE: return "Interface";
+                case ABSTRACT_CLASS: return "Abstract Class";
+                default: throw new IllegalArgumentException();
+            }
+        }
     }
+
 }

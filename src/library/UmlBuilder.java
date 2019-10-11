@@ -168,6 +168,11 @@ public class UmlBuilder extends JFrame {
 
     public void exportPhoto() {
        String path = new File("").getAbsolutePath();
+        File directory = new File("diagrams");
+
+        if (!directory.exists()){
+            directory.mkdir();
+        }
 
         BufferedImage image = mxCellRenderer.createBufferedImage(graph, null, 1, Color.WHITE, true,
                 null);
