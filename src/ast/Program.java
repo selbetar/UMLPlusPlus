@@ -1,9 +1,12 @@
 package ast;
 
+import library.UmlBuilder;
 import library.exceptions.InvalidGrammarException;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Program implements Node {
 
@@ -29,17 +32,42 @@ public class Program implements Node {
 
     @Override
     public void evaluate() {
+        List<Statement> classDecs = statements.stream().filter((statement -> statement.getClass() == ClassDec.class))
+                .collect(Collectors.toList());
+        List<Statement> attributeDecs = statements.stream().filter((statement -> statement.getClass() == AttributeDec.class))
+                .collect(Collectors.toList());
+        List<Statement> relationshipDecs = statements.stream().filter((statement -> statement.getClass() == Relationship.class))
+                .collect(Collectors.toList());
+
+        for (Statement s : classDecs) {
+            s.evaluate();
+        }
+
+        for (Statement s : attributeDecs) {
+            s.evaluate();
+        }
+
+        for (Statement s : relationshipDecs) {
+            s.evaluate();
+        }
+        frame.endUpdate();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 320);
+        frame.setVisible(true);
     }
 
     @Override
     public void nameCheck() {
-        for (STATEMENT s : statements) {
+        for (Statement s : statements) {
             s.nameCheck();
         }
     }
 
     @Override
     public void typeCheck() {
+        for (Statement s : statements) {
+            s.typeCheck();
+        }
 
     }
 }

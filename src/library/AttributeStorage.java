@@ -1,16 +1,16 @@
 package library;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class AttributeStorage {
 
-    public Map<String, ArrayList<String>> fieldMap = new HashMap<>();
-    public Map<String, ArrayList<String>> methodMap = new HashMap<>();
+    public Set<String> declaredClasses = new HashSet<>();
+    public Map<String, String> variableMap = new HashMap<>();
+
     private static AttributeStorage attributeStorage;
 
-    private AttributeStorage(){};
+    private AttributeStorage() {
+    }
 
     public static AttributeStorage getInstance() {
         if (attributeStorage == null) {
