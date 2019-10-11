@@ -16,6 +16,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -167,10 +168,11 @@ public class UmlBuilder extends JFrame {
 
     public void exportPhoto() {
        String path = new File("").getAbsolutePath();
+
         BufferedImage image = mxCellRenderer.createBufferedImage(graph, null, 1, Color.WHITE, true,
                 null);
         try {
-            ImageIO.write(image, "PNG", new File(path + "/output/output.png"));
+            ImageIO.write(image, "PNG", new File(path + "/diagrams/" + new Date().toString() + ".png"));
         }
         catch (IOException e) {
             System.out.println(e.getMessage());
