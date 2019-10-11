@@ -11,11 +11,12 @@ import com.mxgraph.view.mxGraph;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,15 +42,14 @@ public class UmlBuilder extends JFrame {
 
     }
 
-    public static UmlBuilder getInstance()
-    {
+    public static UmlBuilder getInstance() {
         if (instance == null)
             instance = new UmlBuilder();
 
         return instance;
     }
 
-    public mxCell drawNode(ClassDec.classType type, String name, String fields, String methods) {
+    public mxCell drawNode(ClassDec.ClassType type, String name, String fields, String methods) {
         int width = 100;
         int height = 65;
         String titleStyle = "text;html=1;align=center;verticalAlign=top;spacingLeft=4;spacingRight=4;" +
@@ -63,8 +63,8 @@ public class UmlBuilder extends JFrame {
         mxCell titleNode;
 
 
-        if (!type.equals(ClassDec.classType.CLASS)) {
-             titleNode = (mxCell) graph.insertVertex(parent, null, "<<"+type+">>"+'\n'+name, 0, 0,
+        if (!type.equals(ClassDec.ClassType.CLASS)) {
+            titleNode = (mxCell) graph.insertVertex(parent, null, "<<" + type + ">>" + '\n' + name, 0, 0,
                     width, width, titleStyle);
         } else {
             titleNode = (mxCell) graph.insertVertex(parent, null, name, 0, 0, width, width, titleStyle);
@@ -83,7 +83,7 @@ public class UmlBuilder extends JFrame {
         return titleNode;
     }
 
-    public void drawClass(ClassDec.classType type, String className) {
+    public void drawClass(ClassDec.ClassType type, String className) {
         int width = 100;
         int height = 65;
         String titleStyle = "text;html=1;align=center;verticalAlign=top;spacingLeft=4;spacingRight=4;" +
@@ -97,8 +97,8 @@ public class UmlBuilder extends JFrame {
         mxCell titleNode;
 
 
-        if (!type.equals(ClassDec.classType.CLASS)) {
-            titleNode = (mxCell) graph.insertVertex(parent, null, "<<"+type+">>"+'\n'+className, 0, 0,
+        if (!type.equals(ClassDec.ClassType.CLASS)) {
+            titleNode = (mxCell) graph.insertVertex(parent, null, "<<" + type + ">>" + '\n' + className, 0, 0,
                     width, width, titleStyle);
         } else {
             titleNode = (mxCell) graph.insertVertex(parent, null, className, 0, 0, width, width, titleStyle);
@@ -115,21 +115,21 @@ public class UmlBuilder extends JFrame {
         containerMap.put(className, titleNode);
     }
 
-    public void addField(String className, String fields){
+    public void addField(String className, String fields) {
         mxCell classCell = containerMap.get(className);
         mxCell fieldCell = (mxCell) classCell.getChildAt(0);
         fieldCell.setValue(fields);
     }
 
     public void addMethod(String className, String methods) {
-        mxCell classCell  = containerMap.get(className);
+        mxCell classCell = containerMap.get(className);
         mxCell methodCell = (mxCell) classCell.getChildAt(1);
         methodCell.setValue(methods);
     }
 
     public void drawRelation(String fromNode, String toNode, Relationship.relationshipType relation) {
         String implementsStyle = "dashed=true;endArrow=block;endSize=16;endFill=0;html=1;";
-        String extendsStyle    = "endArrow=block;endSize=16;endFill=0;html=1;";
+        String extendsStyle = "endArrow=block;endSize=16;endFill=0;html=1;";
         mxCell toCell = containerMap.get(toNode);
         mxCell fromCell = containerMap.get(fromNode);
 
@@ -141,7 +141,7 @@ public class UmlBuilder extends JFrame {
     }
 
     public mxGraph getGraph() {
-     return graph;
+        return graph;
     }
 
     public void beginUpdate() {
@@ -168,10 +168,11 @@ public class UmlBuilder extends JFrame {
 
     public void exportPhoto() {
        String path = new File("").getAbsolutePath();
+
         BufferedImage image = mxCellRenderer.createBufferedImage(graph, null, 1, Color.WHITE, true,
                 null);
         try {
-            ImageIO.write(image, "PNG", new File(path + "/output/output.png"));
+            ImageIO.write(image, "PNG", new File(path + "/diagrams/" + new Date().toString() + ".png"));
         }
         catch (IOException e) {
             System.out.println(e.getMessage());
@@ -180,9 +181,9 @@ public class UmlBuilder extends JFrame {
 
     public static void main(String[] args) {
         UmlBuilder frame = new UmlBuilder();
-        ClassDec.classType c = ClassDec.classType.CLASS;
-        ClassDec.classType i = ClassDec.classType.INTERFACE;
-        ClassDec.classType ab = ClassDec.classType.ABSTRACT_CLASS;
+        ClassDec.ClassType c = ClassDec.ClassType.CLASS;
+        ClassDec.ClassType i = ClassDec.ClassType.INTERFACE;
+        ClassDec.ClassType ab = ClassDec.ClassType.ABSTRACT_CLASS;
 
 
         /*mxCell v1  = frame.drawNode(ab, "v1", "Hi", "HI()");

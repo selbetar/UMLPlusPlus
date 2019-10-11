@@ -1,68 +1,68 @@
 package ast;
 
 import library.AttributeStorage;
+import java.util.ArrayList;
 
 public class AttributeDec extends Statement {
-    String attributeType;
+    private AttributeType attributeType;
 
-    String visibility;
-    String returnType;
-    String attributeName;
-    ArrayList<String> attributes = new ArrayList<>();
+    private String visibility;
+    private String returnType;
+    private String attributeName;
+    private ArrayList<String> attributes = new ArrayList<>();
 
-    String className;
-    Boolean end;
+    private String className;
+
 
     @Override
     public void parse() {
         tokenizer.getAndCheckNext("Add");
-        attributeType = tokenizer.getNext();
-        tokenizer.getAndCheckNext("[");
-        end = false;
-        while (!end) {
+        attributeType = tokenizer.checkToken("Fields") ? AttributeType.FIELDS : AttributeType.METHODS;
+        tokenizer.getNext();
+        tokenizer.getAndCheckNext("\\[");
+
+        while (!tokenizer.checkToken("\\]")) {
             visibility = tokenizer.getNext();
             tokenizer.getAndCheckNext(":");
             returnType = tokenizer.getNext();
             tokenizer.getAndCheckNext(":");
             attributeName = tokenizer.getNext();
-            attributes.add(visibility + " " + returnType + " " + attributeName + "\n");
-            end = tokenizer.getNext();
-            if (end == ",") {
-                end = false;
-            } else if (end == "]") {
-                end = true;
-            } else {
-                // TODO: handle case when not , or ]
+
+            attributes.add(visibility + " " + returnType + ": " + attributeName + "\n");
+
+            if (tokenizer.checkToken(",")) {
+                tokenizer.getNext();
             }
         }
-        tokenizer.getAndCheckNext("to");
+        tokenizer.getAndCheckNext("\\]");
+        tokenizer.getAndCheckNext("To");
         className = tokenizer.getNext();
     }
 
     @Override
     public void evaluate() {
-        if (attributeType == "field") {
-            String field = visibility + " " + returnType + " " + attributeName + "\n";
-            fieldMap.get(className).add(field)
+        String actualClassName = className;
+        if (AttributeStorage.getInstance().variableMap.containsKey(className)) {
+            actualClassName = AttributeStorage.getInstance().variableMap.get(className);
         }
-        if (attributeType == "method") {
-            String method = visibility + " " + returnType + " " + attributeName + "\n";
-            fieldMap.get(className).add(method)
+        if (attributeType == AttributeType.FIELDS) {
+            frame.addField(actualClassName, String.join("", attributes));
+        } else {
+            frame.addMethod(actualClassName, String.join("", attributes));
         }
     }
 
     @Override
     public void nameCheck() {
-        // TODO: Check if class name is already declared
-//        if (!ClassStorage.classes.contains(className)) {
-//            throw new ClassNameCheckException(className);
-//        }
+
     }
 
     @Override
     public void typeCheck() {
-        if (attributeType != "field" || attributeType != "method")
-            throw new AttributeTypeCheckException(attributeType);
-        }
+    }
+
+    public enum AttributeType {
+        FIELDS,
+        METHODS
     }
 }

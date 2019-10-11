@@ -1,7 +1,7 @@
 package ast;
 
-import library.UmlBuilder;
 import library.AttributeStorage;
+import library.UmlBuilder;
 import library.exceptions.NameCheckException;
 
 public class Relationship extends Statement {
@@ -21,34 +21,31 @@ public class Relationship extends Statement {
 
     @Override
     public void evaluate() {
-        UmlBuilder frame = UmlBuilder.getInstance();
-        if (relationshipType == relationshipType.EXTENDS) {
-            frame.drawRelation(subClass, superClass, relationshipType.EXTENDS);
-        } else if (relationshipType == relationshipType.IMPLEMENTS) {
-            frame.drawRelation(subClass, superClass, relationshipType.IMPLEMENTS);
+        String actualSubClass = subClass;
+        String actualSuperClass = superClass;
+
+        if (AttributeStorage.getInstance().variableMap.containsKey(subClass)) {
+            actualSubClass = AttributeStorage.getInstance().variableMap.get(subClass);
+        }
+
+        if (AttributeStorage.getInstance().variableMap.containsKey(superClass)) {
+            actualSuperClass = AttributeStorage.getInstance().variableMap.get(superClass);
+        }
+
+        if (relType == relationshipType.EXTENDS) {
+            frame.drawRelation(actualSubClass, actualSuperClass, relationshipType.EXTENDS);
+        } else if (relType == relationshipType.IMPLEMENTS) {
+            frame.drawRelation(actualSubClass, actualSuperClass, relationshipType.IMPLEMENTS);
         }
     }
 
     @Override
     public void nameCheck() {
-        boolean subClassExists = false;
-        boolean superClassExists = false;
         AttributeStorage storageInstance = AttributeStorage.getInstance();
-        for (String key : storageInstance.methodMap.keySet()) {
-            if (key == subClass) { 
-                subClassExists = true;
-            }
-
-            if (key == superClass) {
-                superClassExists = true;
-            }
-        }
-
-        if (!subClassExists) {
-            throw new NameCheckException(subClass);
-        }
-
-        if (!superClassExists) {
+        if (!storageInstance.declaredClasses.contains(subClass) &&
+                !storageInstance.declaredClasses.contains(superClass) &&
+                !storageInstance.variableMap.containsKey(subClass) &&
+                !storageInstance.variableMap.containsKey(superClass)) {
             throw new NameCheckException(superClass);
         }
     }
