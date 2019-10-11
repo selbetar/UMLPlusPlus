@@ -51,9 +51,6 @@ public class Program implements Node {
             s.evaluate();
         }
         frame.endUpdate();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 320);
-        frame.setVisible(true);
     }
 
     @Override
