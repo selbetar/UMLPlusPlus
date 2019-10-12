@@ -1,20 +1,36 @@
+Sample Program 1
 Declare Class Library
 Add Fields [+:String:Book] To Library
 Add Methods [+:boolean:Checkout(string ISBN)] To Library
 
+Sample Program 2
+Declare Abstract Class Building
+Declare Class School
+Add Fields [+:double:numStudents] To School
+Add Methods [#:String:getName()] To School
+Extends School > Building
+
+Sample Program 3
+Declare Class Tyrannosaurus As TRex
+Declare Interface Animal As A
+Add Fields [+:string:food, -:int:population] To TRex
+Add Fields [-:string:food, +:boolean:isDog] To A
+Implements TRex > A
 
 PROGRAM::= STATEMENT*
-STATEMENT::= [CLASSDEC | ATTRIBUTEDEC | RELATIONSHIP]
-
-CLASSDEC::=
-
-ATTRIBUTEDEC::="Add " ATTTYPE [VISIBILITY:RETTYPE:ATTNAME,?]* "to" CLASSNAME
-ATTTYPE::=["Fields" | "Methods"]
-VISIBILITY::= [+,-,#]
-RETTYPE::=STRING
-ATTNAME::=STRING
-CLASSNAME::=STRING
-
-RELATIONSHIP
+STATEMENT::=  CLASSDEC | ATTRIBUTEDEC | RELATIONSHIP
+CLASSDEC::= “Declare” CTYPE CLASSNAME ALIAS?
+ATTRIBUTEDEC::=”Add“ ATYPE "[" ATTRIBUTES ","? "]" “To” NAME
+ATTRIBUTE::= VISIBILITY ":" RETTYPE ":" NAME
+RELATIONSHIP::= RELTYPE NAME “>” NAME
+ALIAS::=  “As” VARNAME
+CTYPE::= [“Interface” || “Class” || “Abstract Class”]
+RELTYPE::= [“Implements” || “Extends”]
+VISIBILITY::= ["+" || "-" || "#"]
+ATYPE::= [“Fields” || “Methods”]
+NAME::= CLASSNAME | VARNAME
+RETTYPE::= STRING
+ATTNAME::= STRING
+CLASSNAME::= STRING
 
 
