@@ -80,6 +80,21 @@ public class Tokenizer {
         return (s.matches(regexp));
     }
 
+    private String checkNextToken(){
+        String token="";
+        if (currentToken + 1 < tokens.length){
+            token = tokens[currentToken + 1];
+        }
+        else
+            token="NO_MORE_TOKENS";
+        return token;
+    }
+    public boolean checkNextToken(String regexp){
+        String s = checkNextToken();
+        System.out.println("comparing: "+s+"  to  "+regexp);
+        return (s.matches(regexp));
+    }
+
 
     public String getAndCheckNext(String regexp){
         String s = getNext();

@@ -84,12 +84,12 @@ public class UmlBuilder extends JFrame {
     }
 
     public void drawClass(ClassDec.ClassType type, String className) {
-        int width = 100;
+        int width = 120;
         int height = 65;
-        String titleStyle = "text;html=1;align=center;verticalAlign=top;spacingLeft=4;spacingRight=4;" +
-                "overflow=hidden;rotatable=0;";
-        String attrStyle = "text;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" +
-                "whiteSpace=wrap;overflow=hidden;rotatable=0;portConstraint=eastwest;";
+        String titleStyle = "align=center;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;";
+
+        String attrStyle = "text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" +
+                "whiteSpace=wrap;overflow=hidden;portConstraint=eastwest;";
         mxGeometry fieldGeo = new mxGeometry(0, 0.3, width, height);
         mxGeometry methodGeo = new mxGeometry(0, 0.75, width, height);
         fieldGeo.setRelative(true);
@@ -128,8 +128,8 @@ public class UmlBuilder extends JFrame {
     }
 
     public void drawRelation(String fromNode, String toNode, Relationship.relationshipType relation) {
-        String implementsStyle = "dashed=true;endArrow=block;endSize=16;endFill=0;html=1;";
-        String extendsStyle = "endArrow=block;endSize=16;endFill=0;html=1;";
+        String implementsStyle = "dashed=true;endArrow=block;endSize=16;endFill=0;fillColor=black";
+        String extendsStyle = "endArrow=block;endSize=15;endFill=0;";
         mxCell toCell = containerMap.get(toNode);
         mxCell fromCell = containerMap.get(fromNode);
 
