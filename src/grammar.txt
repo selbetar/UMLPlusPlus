@@ -17,9 +17,12 @@ Add Fields [+:string:food, -:int:population] To TRex
 Add Fields [-:string:food, +:boolean:isDog] To A
 Implements TRex > A
 
+
+Final Grammar (After User Study)
 PROGRAM::= STATEMENT*
 STATEMENT::=  CLASSDEC | ATTRIBUTEDEC | RELATIONSHIP
-CLASSDEC::= “Declare” CTYPE CLASSNAME ALIAS?
+CLASSDEC::= “Declare” CTYPE CLASS [","CLASS]*
+CLASS::= CLASSNAME ALIAS?
 ATTRIBUTEDEC::=”Add“ ATYPE "[" ATTRIBUTES ","? "]" “To” NAME
 ATTRIBUTE::= VISIBILITY ":" RETTYPE ":" NAME
 RELATIONSHIP::= RELTYPE NAME “>” NAME
@@ -32,5 +35,20 @@ NAME::= CLASSNAME | VARNAME
 RETTYPE::= STRING
 ATTNAME::= STRING
 CLASSNAME::= STRING
+
+Initial Grammer (Before User Study)
+PROGRAM::= STATEMENT+
+STATEMENT::=  CLASSDEC | ATTRIBUTEDEC | RELATIONSHIP
+CLASSDEC::= “Declare” CTYPE STRING
+RELATIONSHIP::= RELTYPE CLASSNAME “>” CLASSNAME
+CTYPE::= [“Interface” || “Class” || “Abstract Class”]
+RELTYPE::= [“Implements” || “Extends”]
+VISIBILITY::= [+,-,#]
+ATTNAME::= STRING
+CLASSNAME::=STRING
+ATYPE::=[“Fields” | “Methods”]
+RETTYPE::=STRING
+ATTRIBUTEDEC::=”Add “ ATYPE [VISIBILITY:RETTYPE:NAME, … ,..] “to” CLASSNAME
+
 
 
